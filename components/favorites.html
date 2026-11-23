@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1D291E">
+
+  <title>المفضلة | الغصن العتيق</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500&family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./favorites.css">
+</head>
+
+<body>
+  <main class="furniture favorites-page">
+
+    <header class="furniture__bar">
+      <a href="./index.html" class="furniture__logo">
+        <img src="../public/logo.png" alt="الغصن العتيق">
+      </a>
+
+      <a href="./FurniturePage/Fu.html" class="furniture__back">
+        العودة إلى المفروشات
+      </a>
+    </header>
+
+    <section class="furniture__main">
+
+      <div class="furniture__title-row">
+        <h1 class="furniture__title">المفضلة</h1>
+        <img
+          src="../public/logo.png"
+          alt="الغصن العتيق"
+          class="furniture__intro-logo"
+        >
+      </div>
+
+      <p class="furniture__lead">
+        كل القطع التي اخترتموها بعناية في مكان واحد
+      </p>
+
+      <section class="favorites-content">
+
+        <div class="favorites-toolbar">
+          <h2 class="furniture__cat-title">القطع المحفوظة</h2>
+          <span id="favorites-count">0 قطعة</span>
+        </div>
+
+        <div class="furniture__grid favorites-grid" id="favorites-grid"></div>
+
+        <div class="favorites-empty" id="favorites-empty" hidden>
+          <span class="empty-heart">♡</span>
+          <h2>قائمتكم فارغة حالياً</h2>
+          <p>يمكنكم إضافة القطع التي أعجبتكم إلى المفضلة.</p>
+
+          <a href="./FurniturePage/Fu.html" class="browse-button">
+            اكتشفوا المفروشات
+          </a>
+        </div>
+
+      </section>
+    </section>
+  </main>
+
+  <script src="./favorites.js"></script>
+</body>
+</html>

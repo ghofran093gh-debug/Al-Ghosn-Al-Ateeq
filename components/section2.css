@@ -1,0 +1,437 @@
+
+/* =========================================
+   SECTION 2 - الغصن العتيق
+   Desktop: صور متبدلة يسار + محتوى يمين
+   Mobile: صور اليسار خلفية لكامل القسم
+========================================= */
+
+.section2 {
+  --forest: #1d291e;
+  --ivory: #f6f2e9;
+  --copper: #b18a6a;
+  --beige: #d8d0c2;
+
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  direction: ltr;
+  width: 100%;
+  background: var(--ivory);
+  overflow: clip;
+  isolation: isolate;
+}
+
+/* صور الخلفية المتبدلة */
+
+.section2__visual {
+  display: block;
+  position: sticky;
+  grid-column: 1;
+  grid-row: 1;
+  top: 0;
+  align-self: start;
+  height: 100vh;
+  min-height: 650px;
+  overflow: hidden;
+  background: var(--forest);
+  z-index: 0;
+}
+
+.section2__background {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transform: scale(1.04);
+  transition:
+    opacity 1.5s ease-in-out,
+    transform 6s ease;
+}
+
+.section2__background.is-active {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.section2__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 29, 21, 0.42);
+}
+
+/* الجهة اليسرى */
+
+.section2__left {
+  grid-column: 1;
+  grid-row: 1;
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100vh;
+  min-height: 650px;
+  overflow: hidden;
+  color: var(--ivory);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  direction: rtl;
+  background: transparent;
+  z-index: 1;
+}
+
+.section2__left-content {
+  position: relative;
+  z-index: 2;
+  padding: 70px;
+  text-align: right;
+}
+
+.section2__eyebrow {
+  display: block;
+  color: var(--copper);
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 28px;
+}
+
+.section2__left h2 {
+  font-size: clamp(42px, 5vw, 76px);
+  line-height: 1.35;
+  font-weight: 400;
+  color: var(--ivory);
+  margin: 0;
+}
+
+.section2__left-line {
+  display: block;
+  width: 65px;
+  height: 1px;
+  background: var(--copper);
+  margin-top: 35px;
+}
+
+/* مؤشرات الصور */
+
+.section2__image-indicators {
+  position: absolute;
+  bottom: 45px;
+  right: 70px;
+  z-index: 3;
+  display: flex;
+  gap: 10px;
+}
+
+.section2__image-indicators span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: rgba(246, 242, 233, 0.4);
+  transition:
+    background 0.5s ease,
+    width 0.5s ease;
+}
+
+.section2__image-indicators span.is-active {
+  width: 42px;
+  background: var(--copper);
+}
+
+/* الجهة اليمنى - المحتوى */
+
+.section2__right {
+  grid-column: 2;
+  grid-row: 1;
+  position: relative;
+  z-index: 2;
+  direction: rtl;
+  background: var(--ivory);
+  color: var(--forest);
+  padding: 90px clamp(35px, 5vw, 85px);
+}
+
+/* مقدمة القسم */
+
+.section2__intro {
+  padding-bottom: 55px;
+  border-bottom: 1px solid rgba(29, 41, 30, 0.18);
+}
+
+.section2__intro h2 {
+  font-size: clamp(30px, 3vw, 45px);
+  line-height: 1.4;
+  font-weight: 400;
+  margin: 0 0 22px;
+  color: var(--forest);
+}
+
+.section2__intro p,
+.section2__description {
+  font-size: 16px;
+  line-height: 2.1;
+  font-weight: 400;
+  color: #625d53;
+  margin: 0;
+}
+
+/* المراحل الثلاث */
+
+.section2__item {
+  padding: 65px 0;
+  border-bottom: 1px solid rgba(29, 41, 30, 0.18);
+}
+
+.section2__item-heading {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.section2__number {
+  color: var(--copper);
+  font-size: 14px;
+  letter-spacing: 2px;
+  flex-shrink: 0;
+}
+
+.section2__item h3 {
+  color: var(--forest);
+  font-size: clamp(26px, 2.5vw, 37px);
+  line-height: 1.4;
+  font-weight: 400;
+  margin: 0;
+}
+
+.section2__description {
+  margin-bottom: 30px;
+}
+
+/* الصور الصغيرة المرافقة للنصوص */
+
+.section2__detail-image {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  background: var(--beige);
+}
+
+.section2__detail-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.section2__detail-image:hover img {
+  transform: scale(1.045);
+}
+
+.section2__detail-image span {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 12px 20px;
+  background: rgba(29, 41, 30, 0.88);
+  color: var(--ivory);
+  font-size: 13px;
+}
+
+/* خاتمة القسم */
+
+.section2__closing {
+  padding-top: 60px;
+  text-align: center;
+}
+
+.section2__closing span {
+  display: block;
+  color: var(--copper);
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.section2__closing p {
+  color: var(--forest);
+  font-size: 16px;
+  margin: 0;
+}
+
+/* الهاتف والأجهزة اللوحية الصغيرة */
+
+@media (max-width: 768px) {
+  .section2 {
+    display: block;
+    position: relative;
+    width: 100%;
+    direction: rtl;
+    background: var(--forest);
+    overflow: hidden;
+  }
+
+  /* صور الخلفية تغطي القسم كاملاً */
+
+  .section2__visual {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .section2__background {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .section2__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 29, 21, 0.76);
+  }
+
+  /* إخفاء لوحة اليسار */
+
+  .section2__left {
+    display: none;
+  }
+
+  /* المحتوى فوق الخلفية */
+
+  .section2__right {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    padding: 55px 22px 45px;
+    background: transparent;
+    color: var(--ivory);
+  }
+
+  .section2__intro {
+    padding-bottom: 40px;
+    border-bottom-color: rgba(246, 242, 233, 0.25);
+  }
+
+  .section2__intro h2 {
+    color: var(--ivory);
+    font-size: 34px;
+  }
+
+  .section2__intro p,
+  .section2__description {
+    color: rgba(246, 242, 233, 0.9);
+    font-size: 15px;
+    line-height: 2;
+  }
+
+  .section2__item {
+    padding: 45px 0;
+    border-bottom-color: rgba(246, 242, 233, 0.25);
+  }
+
+  .section2__item h3 {
+    color: var(--ivory);
+    font-size: 28px;
+  }
+
+  .section2__number {
+    color: #d3ad8c;
+  }
+
+  .section2__detail-image {
+    width: 100%;
+    height: 230px;
+  }
+
+  .section2__detail-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .section2__detail-image span {
+    background: rgba(20, 29, 21, 0.9);
+    color: var(--ivory);
+  }
+
+  .section2__closing {
+    padding-top: 45px;
+  }
+
+  .section2__closing span {
+    color: #d3ad8c;
+  }
+
+  .section2__closing p {
+    color: var(--ivory);
+  }
+}
+
+/* الهواتف الصغيرة جداً */
+
+@media (max-width: 380px) {
+  .section2__right {
+    padding-right: 17px;
+    padding-left: 17px;
+  }
+
+  .section2__intro h2 {
+    font-size: 29px;
+  }
+
+  .section2__item h3 {
+    font-size: 24px;
+  }
+
+  .section2__detail-image {
+    height: 200px;
+  }
+}
+
+/* تقليل الحركة لمن يفضل ذلك */
+
+@media (prefers-reduced-motion: reduce) {
+  .section2__background,
+  .section2__detail-image img {
+    transition: none;
+  }
+}
+
+/* دعم اللغة الإنجليزية */
+
+html[dir="ltr"] .section2__left,
+html[dir="ltr"] .section2__right {
+  direction: ltr;
+}
+
+html[dir="ltr"] .section2__left-content {
+  text-align: left;
+}
+
+html[dir="ltr"] .section2__detail-image span {
+  right: auto;
+  left: 0;
+}
+
+@media (max-width: 768px) {
+  html[dir="ltr"] .section2 {
+    direction: ltr;
+  }
+
+  html[dir="ltr"] .section2__right {
+    box-sizing: border-box;
+  }
+}

@@ -1,0 +1,438 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500&family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap");
+
+/* =================================
+   Furniture Page
+================================= */
+
+.furniture {
+  --ivory: #1D291E;
+  --ink: #D8C9B5;
+  --muted: #C19A65;
+  --gold: #43403D;
+
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  background: var(--ivory);
+  color: var(--ink);
+
+  font-family: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  letter-spacing: 0;
+}
+
+.furniture *,
+.furniture *::before,
+.furniture *::after {
+  box-sizing: border-box;
+}
+
+/* =================================
+   Top Bar
+================================= */
+
+.furniture__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 14px clamp(16px, 4vw, 56px);
+
+  background: var(--ink);
+}
+
+.furniture__logo {
+  display: block;
+  line-height: 0;
+  border-radius: 6px;
+}
+
+.furniture__logo img {
+  display: block;
+  width: 44px;
+  height: auto;
+}
+
+.furniture__back {
+  color: var(--gold);
+  font-size: 1rem;
+  font-weight: 400;
+
+  text-decoration: none;
+  padding: 8px 2px;
+
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.furniture__back:hover {
+  border-bottom-color: var(--gold);
+}
+
+/* =================================
+   Main Content
+================================= */
+
+.furniture__main {
+  max-width: 1328px;
+  margin: 0 auto;
+
+  padding:
+    clamp(48px, 7vw, 112px)
+    clamp(20px, 4vw, 56px)
+    clamp(64px, 9vw, 140px);
+}
+
+/* =================================
+   Intro
+================================= */
+
+.furniture__title-row {
+  display: flex;
+  direction: rtl;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+}
+
+.furniture__title {
+  margin: 0;
+
+  font-family: "Alexandria", "IBM Plex Sans Arabic", sans-serif;
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.furniture__intro-logo {
+  width: clamp(85px, 10vw, 145px);
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.furniture__lead {
+  margin: clamp(10px, 1.4vw, 20px) 0 0;
+
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  font-weight: 300;
+  line-height: 1.9;
+
+  color: var(--muted);
+}
+
+/* =================================
+   Categories
+================================= */
+
+.furniture__category {
+  margin-top: clamp(56px, 8vw, 120px);
+}
+
+.furniture__cat-title {
+  margin: 0 0 clamp(20px, 3vw, 40px);
+  padding-bottom: 14px;
+
+  border-bottom: 1px solid rgba(216, 201, 181, 0.2);
+
+  font-family: "Alexandria", "IBM Plex Sans Arabic", sans-serif;
+  font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* =================================
+   Furniture Grid
+================================= */
+
+.furniture__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  column-count: 3;
+  column-gap: clamp(16px, 2.4vw, 36px);
+}
+
+/* =================================
+   Furniture Cards
+================================= */
+
+.furniture__card {
+  break-inside: avoid;
+  margin: 0 0 clamp(28px, 3.4vw, 52px);
+
+  background: #E9E1D5;
+  padding: 12px;
+}
+
+.furniture__card figure {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.furniture__card img {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  background: #E9E1D4;
+
+  transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.furniture__card figure:hover img {
+  transform: scale(1.035);
+}
+
+/* =================================
+   Card Text
+================================= */
+
+.furniture__card figcaption {
+  padding: 14px 10px;
+  text-align: right;
+}
+
+.furniture__name {
+  margin: 0;
+
+  font-family: "Alexandria", "IBM Plex Sans Arabic", sans-serif;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1.5;
+
+  color: #263C35;
+}
+
+.furniture__desc {
+  margin: 6px 0 0;
+
+  font-size: clamp(0.92rem, 1.1vw, 1rem);
+  font-weight: 300;
+  line-height: 1.85;
+
+  color: #6F655B;
+}
+
+/* =================================
+   Favorite Heart
+================================= */
+
+.furniture__heart {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(248, 244, 237, 0.94);
+  color: #C19A65;
+
+  font-size: 27px;
+  cursor: pointer;
+
+  opacity: 0;
+  transform: scale(0.8);
+
+  transition: 0.3s ease;
+  z-index: 2;
+}
+
+.furniture__card figure:hover .furniture__heart,
+.furniture__heart:focus-visible,
+.furniture__heart.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.furniture__heart.is-active {
+  color: #9D3548;
+}
+
+@media (hover: none) {
+  .furniture__heart {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =================================
+   Videos
+================================= */
+
+.furniture__videos {
+  margin-top: 55px;
+}
+
+.furniture__videos-title {
+  color: var(--ink);
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 28px;
+}
+
+.furniture__videos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.furniture__video-card {
+  overflow: hidden;
+  border-radius: 12px;
+  background: #E9E1D5;
+}
+
+.furniture__video-card video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+
+  object-fit: cover;
+  background: #17251F;
+}
+
+.furniture__video-caption {
+  padding: 15px 18px;
+  color: #263C35;
+  text-align: right;
+}
+
+.furniture__video-caption h4 {
+  margin: 0 0 7px;
+  font-size: 17px;
+}
+
+.furniture__video-caption p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* =================================
+   Lightbox
+================================= */
+
+.furniture__lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 50px;
+  background: rgba(15, 20, 17, 0.94);
+
+  cursor: zoom-out;
+}
+
+.furniture__lightbox[hidden] {
+  display: none;
+}
+
+.furniture__lightbox img {
+  display: block;
+
+  max-width: 90%;
+  max-height: 88vh;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+  border-radius: 4px;
+
+  cursor: default;
+
+  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.35);
+}
+
+.furniture__lightbox-close {
+  position: absolute;
+  top: 22px;
+  right: 28px;
+
+  width: 48px;
+  height: 48px;
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+
+  background: transparent;
+  color: #fff;
+
+  font-size: 36px;
+  line-height: 1;
+  cursor: pointer;
+
+  transition: background 0.25s ease;
+}
+
+.furniture__lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* =================================
+   Responsive
+================================= */
+
+@media (max-width: 960px) {
+  .furniture__grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 650px) {
+  .furniture__videos-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .furniture__grid {
+    column-count: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .furniture__lightbox {
+    padding: 20px;
+  }
+
+  .furniture__lightbox img {
+    max-width: 100%;
+    max-height: 80vh;
+  }
+
+  .furniture__lightbox-close {
+    top: 12px;
+    right: 12px;
+  }
+}
+
+/* =================================
+   English Direction
+================================= */
+
+html[dir="ltr"] .furniture__title-row {
+  direction: ltr;
+}
+
+html[dir="ltr"] .furniture__card figcaption,
+html[dir="ltr"] .furniture__video-caption {
+  text-align: left;
+}

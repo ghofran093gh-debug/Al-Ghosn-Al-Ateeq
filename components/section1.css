@@ -1,0 +1,647 @@
+@import url("https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700&family=Jost:wght@300;400;500;600&display=swap");
+
+.s2-section {
+  --s2-green: #174c36;
+  --s2-dark: #102d22;
+  --s2-ivory: #f4f0e8;
+  --s2-gold: #c19a65;
+
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 2200px;
+  padding: 150px 0 100px;
+  overflow: hidden;
+  color: var(--s2-dark);
+  background: var(--s2-ivory);
+  direction: rtl;
+}
+
+/* الخط الأخضر المتحرك */
+
+.s2-line-layer {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.s2-motion-line {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.s2-line-base,
+.s2-line-progress {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.s2-line-base {
+  stroke: rgba(23, 76, 54, 0.10);
+  stroke-width: 2px;
+}
+
+.s2-line-progress {
+  stroke: #174c36;
+  stroke-width: 1cm;
+}
+
+/* الصورة الموجودة فوق لفة الخط */
+
+.s2-loop-image {
+  position: absolute;
+  z-index: 1;
+  left: 33%;
+  top: 23.6%;
+  width: clamp(125px, 17vw, 210px);
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 5px solid var(--s2-ivory);
+  outline: 2px solid var(--s2-gold);
+  border-radius: 50%;
+  background: var(--s2-ivory);
+
+  opacity: var(--loop-image-progress, 0);
+  transform:
+    translate(-50%, -50%)
+    scale(calc(0.75 + var(--loop-image-progress, 0) * 0.25));
+
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.s2-loop-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* النص على اليمين */
+
+.s2-intro {
+  position: relative;
+  z-index: 2;
+  width: 43%;
+  margin-right: 7%;
+  margin-left: auto;
+  padding: 20px 0 100px;
+  text-align: right;
+
+  opacity: var(--intro-progress, 0);
+  transform: translateY(
+    calc((1 - var(--intro-progress, 0)) * 65px)
+  );
+
+  will-change: transform, opacity;
+}
+
+.s2-intro__eyebrow {
+  display: block;
+  margin-bottom: 28px;
+  color: var(--s2-green);
+  font-family: "Alexandria", sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.s2-intro__title {
+  margin: 0;
+  color: var(--s2-dark);
+  font-family: "Alexandria", sans-serif;
+  font-size: clamp(55px, 7.5vw, 112px);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -4px;
+}
+
+.s2-intro__title span {
+  color: var(--s2-green);
+}
+
+.s2-intro__description {
+  max-width: 480px;
+  margin: 30px 0 0 auto;
+  color: #716f66;
+  font-family: "Alexandria", sans-serif;
+  font-size: clamp(14px, 1.25vw, 17px);
+  font-weight: 300;
+  line-height: 2.2;
+}
+
+.s2-intro__line {
+  display: block;
+  width: 75px;
+  height: 2px;
+  margin: 35px 0 0 auto;
+  background: var(--s2-green);
+}
+
+/* معرض الصور */
+
+.s2-gallery {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: start;
+  gap: 110px 25px;
+  width: 88%;
+  margin: 0 auto;
+}
+
+.s2-gallery__item {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+
+  opacity: calc(0.25 + var(--card-progress, 0) * 0.75);
+
+  transform:
+    translateY(calc((1 - var(--card-progress, 0)) * 100px))
+    scale(calc(0.93 + var(--card-progress, 0) * 0.07));
+
+  will-change: transform, opacity;
+}
+
+.s2-gallery__item--1 {
+  grid-column: 1 / span 5;
+}
+
+.s2-gallery__item--2 {
+  grid-column: 7 / span 5;
+  margin-top: 180px;
+}
+
+.s2-gallery__item--3 {
+  grid-column: 2 / span 5;
+  margin-top: 80px;
+}
+
+.s2-gallery__item--4 {
+  grid-column: 7 / span 5;
+  margin-top: 150px;
+}
+
+.s2-gallery__item--5 {
+  grid-column: 3 / span 6;
+  margin-top: 70px;
+}
+
+/* بطاقات الصور */
+
+.s2-card {
+  width: 100%;
+}
+
+.s2-card__visual {
+  position: relative;
+  height: clamp(280px, 38vw, 490px);
+}
+
+.s2-card__main-image {
+  position: absolute;
+  inset: 0 0 0 12%;
+  display: block;
+  overflow: hidden;
+  background: #ddd5c8;
+}
+
+.s2-card__second-image {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  bottom: -22px;
+  display: block;
+  width: 37%;
+  height: 42%;
+  overflow: hidden;
+  border: 7px solid var(--s2-ivory);
+  background: #ddd5c8;
+}
+
+.s2-card__main-image img,
+.s2-card__second-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 900ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.s2-card__main-image:hover img,
+.s2-card__second-image:hover img {
+  transform: scale(1.08);
+}
+
+/* زر المفضلة */
+
+.s2-card__heart {
+  position: absolute;
+  z-index: 4;
+  top: 15px;
+  left: 15px;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  background: rgba(244, 240, 232, 0.9);
+  cursor: pointer;
+  transition: transform 250ms ease, background 250ms ease;
+}
+
+.s2-card__heart:hover {
+  transform: scale(1.1);
+}
+
+.s2-card__heart svg {
+  width: 18px;
+  height: 18px;
+  fill: transparent;
+  stroke: var(--s2-green);
+  stroke-width: 1.6;
+}
+
+.s2-card__heart.is-favorite {
+  background: var(--s2-green);
+}
+
+.s2-card__heart.is-favorite svg {
+  fill: var(--s2-gold);
+  stroke: var(--s2-gold);
+}
+
+/* أسماء المجموعات */
+
+.s2-card__label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 32px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid rgba(23, 76, 54, 0.28);
+  color: var(--s2-dark);
+  font-family: "Jost", "Alexandria", sans-serif;
+  font-size: clamp(17px, 2vw, 25px);
+  text-decoration: none;
+  transition: color 250ms ease;
+}
+
+.s2-card__label:hover {
+  color: var(--s2-green);
+}
+
+.s2-card__arrow {
+  color: var(--s2-green);
+  font-size: 22px;
+}
+
+/* عنوان المعرض */
+
+.s2-gallery-heading {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 86%;
+  margin: 100px auto 35px;
+  color: var(--s2-green);
+  font-family: "Jost", "Alexandria", sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.s2-gallery-heading__line {
+  flex: 1;
+  height: 1px;
+  background: rgba(23, 76, 54, 0.35);
+}
+
+/* الشاشات المتوسطة */
+
+@media (max-width: 900px) {
+  .s2-intro {
+    width: 48%;
+    margin-right: 5%;
+  }
+
+  .s2-gallery {
+    width: 92%;
+    gap: 85px 18px;
+  }
+
+  .s2-gallery__item--1,
+  .s2-gallery__item--3 {
+    grid-column: 1 / span 6;
+  }
+
+  .s2-gallery__item--2,
+  .s2-gallery__item--4 {
+    grid-column: 7 / span 6;
+  }
+
+  .s2-gallery__item--5 {
+    grid-column: 3 / span 8;
+  }
+
+  .s2-loop-image {
+    width: clamp(115px, 19vw, 175px);
+  }
+}
+
+/* الهاتف */
+
+@media (max-width: 600px) {
+  .s2-section {
+    min-height: 1800px;
+    padding-top: 76px;
+  }
+
+  /* النص: أحجام أصغر قليلاً ومسافات أنظف */
+  .s2-intro {
+    width: 86%;
+    margin: 0 auto;
+    padding: 12px 0 64px;
+  }
+
+  .s2-intro__eyebrow {
+    margin-bottom: 20px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+  }
+
+  .s2-intro__title {
+    font-size: clamp(34px, 9.4vw, 52px);
+    letter-spacing: -1.5px;
+    line-height: 1.45;
+  }
+
+  .s2-intro__description {
+    max-width: 100%;
+    margin-top: 22px;
+    font-size: 12.5px;
+    line-height: 2.05;
+  }
+
+  .s2-intro__line {
+    margin-top: 28px;
+  }
+
+  /* المعرض: عمود واحد متعرج، مسافات ثابتة بدل هوامش الشاشات الكبيرة */
+  .s2-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+    width: 86%;
+  }
+
+  .s2-gallery__item {
+    width: 90%;
+    margin-top: 0;
+  }
+
+  /* مساحة إضافية بعد البطاقة الأولى لاستيعاب الصورة الدائرية */
+  .s2-gallery__item--2 {
+    margin-top: 180px;
+  }
+
+  .s2-gallery__item:nth-child(even) {
+    align-self: flex-start;
+  }
+
+  .s2-gallery__item:nth-child(odd) {
+    align-self: flex-end;
+  }
+
+  .s2-card__visual {
+    height: 75vw;
+    max-height: 390px;
+  }
+
+  .s2-card__label {
+    margin-top: 26px;
+    padding-bottom: 11px;
+    font-size: 15.5px;
+  }
+
+  .s2-card__arrow {
+    font-size: 18px;
+  }
+
+  .s2-gallery-heading {
+    width: 86%;
+    margin-top: 80px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  /* الخط الأخضر: أنحف وأكثر أناقة على الهاتف */
+  .s2-line-base {
+    stroke-width: 2px;
+  }
+
+  .s2-line-progress {
+    stroke-width: 12px;
+  }
+
+  /* الصورة الدائرية: موضعها يُحسب في JS تحت البطاقة الأولى مباشرة */
+  .s2-loop-image {
+    left: var(--s2-loop-left, 50%);
+    top: var(--s2-loop-top, 26%);
+    width: 104px;
+    border-width: 4px;
+  }
+}
+
+/* تقليل الحركة */
+
+@media (prefers-reduced-motion: reduce) {
+  .s2-card__main-image img,
+  .s2-card__second-image img,
+  .s2-card__heart,
+  .s2-card__label {
+    transition: none;
+  }
+}
+
+/* ======================================================
+   English (LTR): only the direction and alignment of the
+   TEXT change. The composition (grid, line, circular
+   image) stays exactly as designed.
+====================================================== */
+
+html[dir="ltr"] .s2-intro {
+  direction: ltr;
+  text-align: left;
+}
+
+html[dir="ltr"] .s2-intro__title {
+  letter-spacing: -2px;
+}
+
+@media (min-width: 601px) {
+  html[dir="ltr"] .s2-intro__title {
+    font-size: clamp(44px, 5.4vw, 80px);
+    line-height: 1.3;
+  }
+}
+
+html[dir="ltr"] .s2-intro__description {
+  margin: 30px auto 0 0;
+}
+
+html[dir="ltr"] .s2-intro__line {
+  margin: 35px auto 0 0;
+}
+
+html[dir="ltr"] .s2-card__label,
+html[dir="ltr"] .s2-gallery-heading {
+  direction: ltr;
+}
+
+/* تكبير الصور عند الضغط */
+
+.s2-card__main-image,
+.s2-card__second-image {
+  padding: 0;
+  border-radius: 0;
+  cursor: zoom-in;
+  border: 0;
+  text-align: inherit;
+}
+
+.s2-card__second-image {
+  border: 7px solid var(--s2-ivory);
+}
+
+/* نافذة الصورة المكبرة */
+
+.s2-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 70px 24px;
+  background: rgba(10, 15, 12, 0.92);
+  cursor: zoom-out;
+  animation: s2-lightbox-appear 250ms ease;
+}
+
+.s2-lightbox__image {
+  display: block;
+  max-width: min(90vw, 1200px);
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  cursor: default;
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.35);
+  animation: s2-lightbox-image-appear 300ms ease;
+}
+
+.s2-lightbox__close {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  background: rgba(244, 240, 232, 0.12);
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 34px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 200ms ease, transform 200ms ease;
+}
+
+.s2-lightbox__close:hover {
+  background: rgba(244, 240, 232, 0.25);
+  transform: rotate(90deg);
+}
+
+@keyframes s2-lightbox-appear {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes s2-lightbox-image-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 600px) {
+  .s2-lightbox {
+    padding: 60px 14px;
+  }
+
+  .s2-lightbox__image {
+    max-width: 94vw;
+    max-height: 80vh;
+  }
+
+  .s2-lightbox__close {
+    top: 14px;
+    right: 14px;
+    width: 42px;
+    height: 42px;
+  }
+}
+
+html[dir="ltr"] .s2-lightbox__close {
+  right: auto;
+  left: 30px;
+}
+
+@media (max-width: 600px) {
+  html[dir="ltr"] .s2-lightbox__close {
+    left: 14px;
+  }
+}
+
+/* الهاتف — English (LTR): these must come after the LTR rules above */
+
+@media (max-width: 600px) {
+  html[dir="ltr"] .s2-intro__title {
+    letter-spacing: -1px;
+    line-height: 1.25;
+  }
+
+  html[dir="ltr"] .s2-intro__description {
+    margin: 22px auto 0 0;
+  }
+
+  html[dir="ltr"] .s2-intro__line {
+    margin: 28px auto 0 0;
+  }
+}
+
+/* Keep the lightbox fully hidden until opened by JavaScript. */
+.s2-lightbox[hidden] {
+  display: none !important;
+}

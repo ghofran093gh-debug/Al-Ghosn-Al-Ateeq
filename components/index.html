@@ -1,0 +1,521 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#2a2420" />
+
+  <title>الغصن العتيق</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./index.css" />
+  <link rel="stylesheet" href="./section1.css" />
+  <link rel="stylesheet" href="./section2.css" />
+  <link rel="stylesheet" href="./Footer.css" />
+  <link rel="stylesheet" href="./WhatsAppButton.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header id="home" class="hero hero--ar" dir="rtl" lang="ar">
+
+    <!-- Slideshow -->
+    <div class="hero__slideshow" aria-hidden="true">
+      <div class="hero__slide" data-state="active"></div>
+      <div class="hero__slide"></div>
+      <div class="hero__slide"></div>
+      <div class="hero__slide"></div>
+      <div class="hero__overlay"></div>
+    </div>
+
+    <!-- Top bar -->
+    <div class="hero__bar">
+
+      <a class="hero__mark" href="#home" aria-label="الغصن العتيق">
+        <img src="../public/logo.png" alt="شعار الغصن العتيق">
+      </a>
+
+      <div class="hero__actions">
+
+        <nav class="hero__nav" aria-label="التنقل الرئيسي">
+          <ul>
+
+            <li>
+              <a class="hero__navlink" href="#home"
+                data-nav="home" aria-label="الرئيسية">
+
+                <svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round"
+                  aria-hidden="true">
+                  <path d="M3 10.5 12 3l9 7.5" />
+                  <path d="M5 9v10.5a1 1 0 0 0 1 1h3.5v-6h5v6H18a1 1 0 0 0 1-1V9" />
+                </svg>
+
+                <span class="hero__tip" aria-hidden="true">الرئيسية</span>
+              </a>
+            </li>
+
+            <li>
+              <a class="hero__navlink"
+                href="./FurniturePage/Fu.html"
+                data-nav="collections"
+                aria-label="الأثاث والمجموعات">
+
+                <svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round"
+                  aria-hidden="true">
+                  <path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3" />
+                  <path d="M2 11v5a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v2H6v-2a2 2 0 0 0-4 0Z" />
+                  <path d="M4 18v2" />
+                  <path d="M20 18v2" />
+                </svg>
+
+                <span class="hero__tip" aria-hidden="true">الأثاث والمجموعات</span>
+              </a>
+            </li>
+
+            <li>
+             <a class="hero__navlink" href="./favorites.html"
+  data-nav="favorites" aria-label="المفضلة">
+
+                <svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round"
+                  aria-hidden="true">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                </svg>
+
+                <span class="hero__tip" aria-hidden="true">المفضلة</span>
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+
+        <!-- Language switch -->
+        <button type="button" class="hero__lang"
+          id="languageToggle"
+          aria-label="التبديل إلى اللغة الإنجليزية">
+
+          <svg viewBox="0 0 24 24" width="18" height="18"
+            fill="none" stroke="currentColor"
+            stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+
+            <circle cx="12" cy="12" r="10" />
+            <path d="M2 12h20" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+          </svg>
+
+          <span id="languageLabel" lang="en">English</span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Centered branding -->
+    <div class="hero__brand">
+
+      <img class="hero__logo" src="/logo.png"
+        id="brandLogo" alt="شعار الغصن العتيق" />
+
+      <h1 class="hero__name" id="brandName">الغصن العتيق</h1>
+
+      <p class="hero__subtitle" id="brandSubtitle">
+        تفصيل حسب الطلب
+      </p>
+
+      <p class="hero__tagline" id="brandTagline">
+        حيث تلتقي أناقة الأثاث بفنّ التفاصيل
+      </p>
+
+    </div>
+
+    <!-- Slide indicators -->
+    <div class="hero__controls" id="slideControls"
+      role="group" aria-label="عناصر التحكم في العرض">
+
+      <button class="hero__dot hero__dot--active"
+        type="button" data-slide="0"
+        aria-label="الانتقال إلى الشريحة 1"
+        aria-current="true">
+
+        <span class="hero__dot-fill" style="width:0%"></span>
+      </button>
+
+      <button class="hero__dot" type="button"
+        data-slide="1" aria-label="الانتقال إلى الشريحة 2">
+      </button>
+
+      <button class="hero__dot" type="button"
+        data-slide="2" aria-label="الانتقال إلى الشريحة 3">
+      </button>
+
+      <button class="hero__dot" type="button"
+        data-slide="3" aria-label="الانتقال إلى الشريحة 4">
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- SECTION 2: Collections -->
+  <section class="s2-section" id="categories">
+
+    <div class="s2-line-layer" aria-hidden="true">
+      <svg class="s2-motion-line"
+        viewBox="0 0 1000 2200"
+        preserveAspectRatio="none">
+
+        <path class="s2-line-base s2-line-base--first"></path>
+        <path class="s2-line-base s2-line-base--second"></path>
+        <path class="s2-line-progress s2-line-progress--first"></path>
+        <path class="s2-line-progress s2-line-progress--second"></path>
+
+      </svg>
+    </div>
+
+    <div class="s2-loop-image" aria-hidden="true">
+      <img
+        src="../public/Curtain/543121e0-e387-4e5f-a596-9a3704e91494.webp"
+        alt=""
+      />
+    </div>
+
+    <div class="s2-intro">
+
+      <span class="s2-intro__eyebrow"></span>
+
+      <h2 class="s2-intro__title">
+        <span class="s2-intro__title-line1"></span>
+        <br />
+        <span class="s2-intro__title-line2"></span>
+      </h2>
+
+      <p class="s2-intro__description"></p>
+
+      <span class="s2-intro__line"></span>
+
+    </div>
+
+    <div class="s2-gallery"></div>
+
+    <div class="s2-gallery-heading">
+      <span class="s2-gallery-heading__title"></span>
+      <span class="s2-gallery-heading__line"></span>
+      <span>01 — 05</span>
+    </div>
+
+    <div class="s2-lightbox" hidden
+      role="dialog" aria-modal="true">
+
+      <button class="s2-lightbox__close"
+        type="button" aria-label="إغلاق الصورة">×</button>
+
+      <img class="s2-lightbox__image" src="" alt="" />
+
+    </div>
+
+  </section>
+
+
+  <!-- SECTION 2: Design Your Sofa -->
+  <section class="section2" dir="rtl">
+
+    <div class="section2__visual"></div>
+
+    <div class="section2__left"></div>
+
+    <div class="section2__right"></div>
+
+  </section>
+
+
+  <!-- SECTION 6 + FOOTER -->
+  <div class="footer-experience" dir="rtl">
+
+    <!-- SHOWCASE SECTION -->
+    <section class="section6 footer-showcase">
+
+      <div class="section6__content">
+
+        <div class="section6__heading">
+          <span>الغصن العتيق</span>
+          <h2>اكتشفوا عالمنا</h2>
+          <p>
+            تفاصيل مختارة بعناية لتضيف لمنازلكم لمسة من الأناقة والجمال.
+          </p>
+        </div>
+
+        <div class="section6__cards">
+
+          <!-- DINING TABLES -->
+          <a href="./FurniturePage/Fu.html#dining"
+            class="section6__card">
+
+            <div class="section6__card-inner">
+
+              <div class="section6__image-wrapper">
+                <img
+                  src="../public/Tables/vyu.jpeg"
+                  alt="طاولات الطعام"
+                  class="section6__image"
+                  loading="lazy"
+                />
+                <div class="section6__image-overlay"></div>
+              </div>
+
+              <div class="section6__card-content">
+                <h3>طاولات الطعام</h3>
+                <span class="section6__underline"></span>
+                <p>تصاميم تجمع بين الفخامة والعملية.</p>
+
+                <span class="section6__link">
+                  اكتشف المزيد
+                  <span>←</span>
+                </span>
+              </div>
+
+            </div>
+          </a>
+
+          <!-- PAINTINGS -->
+          <a href="./FurniturePage/Fu.html#paintings"
+            class="section6__card">
+
+            <div class="section6__card-inner">
+
+              <div class="section6__image-wrapper">
+                <img
+                  src="../public/Painting/Golden Blaze Horse Portrait.png"
+                  alt="اللوحات الفنية"
+                  class="section6__image"
+                  loading="lazy"
+                />
+                <div class="section6__image-overlay"></div>
+              </div>
+
+              <div class="section6__card-content">
+                <h3>اللوحات الفنية</h3>
+                <span class="section6__underline"></span>
+                <p>لمسات فنية تمنح المكان شخصية مميزة.</p>
+
+                <span class="section6__link">
+                  اكتشف المزيد
+                  <span>←</span>
+                </span>
+              </div>
+
+            </div>
+          </a>
+
+          <!-- CURTAINS -->
+          <a href="./FurniturePage/Fu.html#curtains"
+            class="section6__card">
+
+            <div class="section6__card-inner">
+
+              <div class="section6__image-wrapper">
+                <img
+                  src="../public/Curtain/4651f641-a851-4a09-bda4-7fb39ccbf850.webp"
+                  alt="الستائر"
+                  class="section6__image"
+                  loading="lazy"
+                />
+                <div class="section6__image-overlay"></div>
+              </div>
+
+              <div class="section6__card-content">
+                <h3>الستائر</h3>
+                <span class="section6__underline"></span>
+                <p>تفاصيل أنيقة تكمل جمال المساحات.</p>
+
+                <span class="section6__link">
+                  اكتشف المزيد
+                  <span>←</span>
+                </span>
+              </div>
+
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="site-footer" id="contact">
+
+      <div class="site-footer__inner">
+
+        <div class="site-footer__columns">
+
+          <!-- QUICK LINKS -->
+          <nav class="site-footer__nav" aria-label="روابط الموقع">
+
+            <h3 class="site-footer__heading">روابط سريعة</h3>
+
+            <a href="./index.html#home">الرئيسية</a>
+            <a href="./FurniturePage/Fu.html#sofas">المفروشات</a>
+            <a href="./FurniturePage/Fu.html#dining">طاولات الطعام</a>
+            <a href="./FurniturePage/Fu.html#curtains">الستائر</a>
+          <a href="./favorites.html">المفضلة</a>
+
+          </nav>
+
+          <!-- CONTACT -->
+          <section class="site-footer__contact">
+
+            <h3 class="site-footer__heading">تواصل معنا</h3>
+
+            <p class="site-footer__contact-intro">
+              يسعدنا تواصلكم معنا للإجابة عن استفساراتكم.
+            </p>
+
+            <a
+              class="site-footer__phone"
+              href="https://wa.me/966559914470"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="site-footer__contact-icon">☎</span>
+              <span dir="ltr">+966 55 991 4470</span>
+            </a>
+
+            <a
+              class="site-footer__whatsapp"
+              href="https://wa.me/966559914470"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span aria-hidden="true">◉</span>
+              تواصل عبر واتساب
+              <span class="site-footer__arrow">↗</span>
+            </a>
+
+            <div class="site-footer__socials">
+
+              <a
+                href="https://www.snapchat.com/add/lgsnltyq"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="سناب شات"
+                title="سناب شات"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2.2c-3.1 0-5 2.2-5 5.4 0 1.1.2 2.1.1 2.8-.1.7-.7 1.2-1.7 1.6-.6.2-.9.6-.7 1 .2.5 1.1.7 1.8.9.6.2.8.6.7 1.1-.2.7-1.1 1.1-2.1 1.3-.7.2-.9.6-.5 1 .5.5 1.7.4 2.5.8.7.3.8 1 1.7 1.4.8.4 1.8.2 3.2.2s2.4.2 3.2-.2c.9-.4 1-1.1 1.7-1.4.8-.4 2-.3 2.5-.8.4-.4.2-.8-.5-1-1-.2-1.9-.6-2.1-1.3-.1-.5.1-.9.7-1.1.7-.2 1.6-.4 1.8-.9.2-.4-.1-.8-.7-1-1-.4-1.6-.9-1.7-1.6-.1-.7.1-1.7.1-2.8 0-3.2-1.9-5.4-5-5.4Z"/>
+                </svg>
+              </a>
+
+            </div>
+
+            <!-- OPENING HOURS -->
+            <div class="site-footer__hours">
+
+              <div class="site-footer__hours-title">
+
+                <span class="site-footer__hours-dot"></span>
+
+                <h3>ساعات العمل</h3>
+
+                <span
+                  class="site-footer__status is-closed"
+                  id="footerOpeningStatus"
+                >
+                  مغلق الآن
+                </span>
+
+              </div>
+
+              <p>الفترة الصباحية: 9:00 صباحاً – 12:00 ظهراً</p>
+              <p>الفترة المسائية: 4:00 مساءً – 11:00 مساءً</p>
+
+            </div>
+
+          </section>
+
+          <!-- MAP -->
+          <section class="site-footer__map-section">
+
+            <h3 class="site-footer__heading">موقعنا</h3>
+
+            <p class="site-footer__map-description">
+               . يسعدنا زيارتكم والتعرف على مجموعتنا في الرياض الباحة
+            </p>
+
+            <div class="site-footer__map">
+
+              <iframe
+                src="https://www.google.com/maps?q=20.023868,41.4780639&output=embed"
+                title="موقع الغصن العتيق على الخريطة"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen
+              ></iframe>
+
+            </div>
+
+            <a
+              class="site-footer__map-link"
+              href="https://www.google.com/maps/search/?api=1&query=20.023868,41.4780639"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              عرض الموقع على خرائط Google
+              <span aria-hidden="true">↗</span>
+            </a>
+
+          </section>
+
+        </div>
+
+        <!-- COPYRIGHT -->
+        <div class="site-footer__bottom">
+
+          <p id="footerCopyright">
+            © 2026 الغصن العتيق. جميع الحقوق محفوظة.
+          </p>
+
+          <p class="site-footer__bottom-note">
+            صُمم بعناية واهتمام بالتفاصيل.
+          </p>
+
+        </div>
+
+      </div>
+
+    </footer>
+
+  </div>
+
+
+  <!-- WHATSAPP BUTTON -->
+  <button
+    class="whatsapp-button"
+    aria-label="إرسال المفضلة عبر واتساب"
+    title="تواصل عبر واتساب"
+  >
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path
+        fill="currentColor"
+        d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 6.9L3.5 29l6.5-1.7a13 13 0 0 0 6 1.5h.1c7.2 0 13-5.8 13-13S23.2 3 16 3Zm0 23.5c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-3.9 1 1-3.8-.3-.4a10.5 10.5 0 1 1 9 4.9Zm5.8-7.8c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.6-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6-.1-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.1 1.4 3.3c.2.2 2.3 3.5 5.5 4.9 3.2 1.4 3.2.9 3.8.9.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4Z"
+      />
+    </svg>
+  </button>
+
+
+  <!-- JavaScript files: Vanilla JavaScript only -->
+  <script src="./index.js" defer></script>
+  <script src="./section1.js" defer></script>
+  <script src="./section2.js" defer></script>
+  <script src="./Footer.js" defer></script>
+  <script src="./WhatsAppButton.js" defer></script>
+
+</body>
+</html>

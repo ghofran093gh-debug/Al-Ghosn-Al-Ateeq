@@ -1,3 +1,4 @@
+
 const LOGO = "../public/logo.png";
 
 const SLIDES = [
@@ -29,8 +30,6 @@ const translations = {
     switchTo: "English",
     switchToLang: "en",
     switchLabel: "التبديل إلى اللغة الإنجليزية",
-    controlsLabel: "عناصر التحكم في العرض",
-    goTo: (n) => `الانتقال إلى الشريحة ${n + 1}`,
   },
 
   en: {
@@ -48,8 +47,6 @@ const translations = {
     switchTo: "العربية",
     switchToLang: "ar",
     switchLabel: "Switch to Arabic",
-    controlsLabel: "Slideshow controls",
-    goTo: (n) => `Go to slide ${n + 1}`,
   },
 };
 
@@ -57,6 +54,7 @@ const translations = {
 function readStoredLanguage() {
   try {
     const saved = localStorage.getItem(LANGUAGE_KEY);
+
     return saved === "en" || saved === "ar"
       ? saved
       : DEFAULT_LANGUAGE;
@@ -69,28 +67,27 @@ let lang = readStoredLanguage();
 
 // Elements
 const hero = document.querySelector(".hero");
-const slidesElements = [...document.querySelectorAll(".hero__slide")];
-const dots = [...document.querySelectorAll(".hero__dot")];
 
 const brandName = document.getElementById("brandName");
 const brandSubtitle = document.getElementById("brandSubtitle");
 const brandTagline = document.getElementById("brandTagline");
 const brandLogo = document.getElementById("brandLogo");
+
 brandLogo.src = LOGO;
 
 const languageToggle = document.getElementById("languageToggle");
 const languageLabel = document.getElementById("languageLabel");
 const nav = document.querySelector(".hero__nav");
 const navLinks = document.querySelectorAll("[data-nav]");
-const slideControls = document.getElementById("slideControls");
+
+const slidesElements = document.querySelectorAll(".hero__slide");
 
 let active = 0;
 let leaving = null;
 let busy = false;
+
 let holdTimer = null;
 let leaveTimer = null;
-let animationFrame = null;
-let progressStart = null;
 
 // Preload images
 SLIDES.forEach(({ src }) => {
@@ -130,18 +127,16 @@ function applyLanguage(nextLanguage) {
     link.setAttribute("aria-label", label);
 
     const tooltip = link.querySelector(".hero__tip");
-    if (tooltip) tooltip.textContent = label;
+
+    if (tooltip) {
+      tooltip.textContent = label;
+    }
   });
 
   languageLabel.textContent = t.switchTo;
   languageLabel.lang = t.switchToLang;
+
   languageToggle.setAttribute("aria-label", t.switchLabel);
-
-  slideControls.setAttribute("aria-label", t.controlsLabel);
-
-  dots.forEach((dot, index) => {
-    dot.setAttribute("aria-label", t.goTo(index));
-  });
 
   try {
     localStorage.setItem(LANGUAGE_KEY, lang);
@@ -165,57 +160,6 @@ window.addEventListener("storage", (event) => {
   }
 });
 
-// Update progress indicator
-function startProgress() {
-  cancelAnimationFrame(animationFrame);
-
-  progressStart = performance.now();
-
-  function tick(now) {
-    const percentage = Math.min(
-      ((now - progressStart) / HOLD_MS) * 100,
-      100
-    );
-
-    const fill = dots[active]?.querySelector(".hero__dot-fill");
-
-    if (fill) {
-      fill.style.width = `${percentage}%`;
-    }
-
-    if (percentage < 100) {
-      animationFrame = requestAnimationFrame(tick);
-    }
-  }
-
-  animationFrame = requestAnimationFrame(tick);
-}
-
-// Update active dot
-function updateDots() {
-  dots.forEach((dot, index) => {
-    dot.classList.toggle("hero__dot--active", index === active);
-
-    if (index === active) {
-      dot.setAttribute("aria-current", "true");
-
-      let fill = dot.querySelector(".hero__dot-fill");
-
-      if (!fill) {
-        fill = document.createElement("span");
-        fill.className = "hero__dot-fill";
-        dot.appendChild(fill);
-      }
-
-      fill.style.width = "0%";
-    } else {
-      dot.removeAttribute("aria-current");
-      const fill = dot.querySelector(".hero__dot-fill");
-      if (fill) fill.remove();
-    }
-  });
-}
-
 // Schedule next slide
 function scheduleHold() {
   clearTimeout(holdTimer);
@@ -232,6 +176,7 @@ function advanceTo(next) {
   busy = true;
 
   const previous = active;
+
   leaving = previous;
   active = next;
 
@@ -250,38 +195,24 @@ function advanceTo(next) {
     }
   });
 
-  updateDots();
-  startProgress();
-
   clearTimeout(leaveTimer);
 
   leaveTimer = setTimeout(() => {
     slidesElements[previous].removeAttribute("data-state");
+
     leaving = null;
     busy = false;
+
     scheduleHold();
   }, FADE_MS + 40);
 }
 
-// Slide indicator click
-dots.forEach((dot) => {
-  dot.addEventListener("click", () => {
-    const index = Number(dot.dataset.slide);
-
-    if (index === active || busy) return;
-
-    clearTimeout(holdTimer);
-    advanceTo(index);
-  });
-});
-
 // Navigation events
 navLinks.forEach((link) => {
-  link.addEventListener("click", (event) => {
+  link.addEventListener("click", () => {
     const page = link.dataset.nav;
 
     if (page === "collections" || page === "favorites") {
-      // These events can be handled when the Furniture page is connected.
       window.dispatchEvent(
         new CustomEvent("ghosn:navigate", {
           detail: { page },
@@ -293,18 +224,17 @@ navLinks.forEach((link) => {
 
 // Initialize slideshow
 SLIDES.forEach((slide, index) => {
-  slidesElements[index].style.backgroundImage = `url("${slide.src}")`;
-  slidesElements[index].style.backgroundPosition = slide.pos;
+  if (slidesElements[index]) {
+    slidesElements[index].style.backgroundImage = `url("${slide.src}")`;
+    slidesElements[index].style.backgroundPosition = slide.pos;
+  }
 });
 
 applyLanguage(lang);
-updateDots();
-startProgress();
 scheduleHold();
 
 // Cleanup if the page is unloaded
 window.addEventListener("beforeunload", () => {
   clearTimeout(holdTimer);
   clearTimeout(leaveTimer);
-  cancelAnimationFrame(animationFrame);
 });

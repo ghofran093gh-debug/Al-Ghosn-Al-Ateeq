@@ -7,48 +7,50 @@
   const STORAGE_KEY = "ghosn-alateeq-language";
   const FAVORITES_KEY = "ghosn-alateeq-section2-favorites";
 
-  const CATEGORIES = [
-    {
-      id: "curtain",
-      href: "#curtain",
-      images: [
-        "../public/Curtain/1d37ed1b-80f8-4e9a-9466-b3170ae056f0.webp",
-        "../public/Curtain/4651f641-a851-4a09-bda4-7fb39ccbf850.webp"
-      ]
-    },
-    {
-      id: "sofas",
-      href: "#sofas",
-      images: [
-        "../public/sofas/030b281a-bc01-495b-934f-d8c0a02dc490.webp",
-        "../public/sofas/37e1fc89-5ae5-4008-9747-6a7a585e4e7e.webp"
-      ]
-    },
-    {
-      id: "tables",
-      href: "#tables",
-      images: [
-        "../public/Tables/bi.jpeg",
-        "../public/Tables/icir.jpeg"
-      ]
-    },
-    {
-      id: "painting",
-      href: "#painting",
-      images: [
-        "../public/Painting/dhgf.webp",
-        "../public/Painting/fghj.webp"
-      ]
-    },
-    {
-      id: "min",
-      href: "#min",
-      images: [
-        "../public/min/gh.jpeg",
-        "../public/min/images (1).jpg"
-      ]
-    }
-  ];
+ 
+const CATEGORIES = [
+  {
+    id: "curtain",
+    href: "./FurniturePage/Fu.html#curtains",
+    images: [
+      "../public/Curtain/1d37ed1b-80f8-4e9a-9466-b3170ae056f0.webp",
+      "../public/Curtain/4651f641-a851-4a09-bda4-7fb39ccbf850.webp"
+    ]
+  },
+  {
+    id: "sofas",
+    href: "./FurniturePage/Fu.html#sofas",
+    images: [
+      "../public/sofas/030b281a-bc01-495b-934f-d8c0a02dc490.webp",
+      "../public/sofas/37e1fc89-5ae5-4008-9747-6a7a585e4e7e.webp"
+    ]
+  },
+  {
+    id: "tables",
+    href: "./FurniturePage/Fu.html#dining",
+    images: [
+      "../public/Tables/bi.jpeg",
+      "../public/Tables/icir.jpeg"
+    ]
+  },
+  {
+    id: "painting",
+    href: "./FurniturePage/Fu.html#paintings",
+    images: [
+      "../public/Painting/dhgf.webp",
+      "../public/Painting/fghj.webp"
+    ]
+  },
+  {
+    id: "min",
+    href: "./FurniturePage/Fu.html",
+    images: [
+      "../public/min/gh.jpeg",
+      "../public/min/images (1).jpg"
+    ]
+  }
+];
+
 
   const TRANSLATIONS = {
     ar: {

@@ -28,6 +28,7 @@
       eyebrow: "من اختيارك إلى التنفيذ",
       title: "صالونك... بذوقك الخاص",
       intro: "امنح أثاثك حياة متجددة، واختر التفاصيل التي تشبهك. نحن نرافقك في كل خطوة من اختيار القماش واللون إلى أدق مراحل التنفيذ.",
+
       sections: [
         {
           title: "كيف نختار الألوان؟",
@@ -48,6 +49,17 @@
           label: "عناية في كل تفصيل"
         }
       ],
+
+      /* بطاقة اختر تصميمك */
+      cta: {
+        eyebrow: "تصميم يعبّر عنك",
+        title: "اختر تصميمك",
+        subtitle: "ودعنا نصنع لك ما يشبه ذوقك",
+        description: "من الفكرة الأولى إلى أدق التفاصيل، نصمم أثاثك ليعكس شخصيتك وينسجم مع منزلك.",
+        button: "تواصل معنا",
+        note: "لنتحدث عن تصميمك وتفاصيله"
+      },
+
       closingName: "الغصن العتيق",
       closingText: "الجمال يبدأ من التفاصيل."
     },
@@ -56,6 +68,7 @@
       eyebrow: "From Your Choice to Completion",
       title: "Your Sofa Set... Your Own Taste",
       intro: "Give your furniture a new life and choose the details that reflect you. We accompany you at every step, from choosing the fabric and color to the finest stages of execution.",
+
       sections: [
         {
           title: "How Do We Choose the Colors?",
@@ -76,6 +89,17 @@
           label: "Care in every detail"
         }
       ],
+
+      /* Choose Your Design Card */
+      cta: {
+        eyebrow: "A Design That Reflects You",
+        title: "Choose Your Design",
+        subtitle: "Let us create something that feels like you",
+        description: "From the first idea to the finest details, we design furniture that reflects your personality and complements your home.",
+        button: "Contact Us",
+        note: "Let's talk about your design"
+      },
+
       closingName: "Al Ghosn Al Ateeq",
       closingText: "Beauty begins with the details."
     }
@@ -113,7 +137,7 @@
       <div class="section2__overlay"></div>
     `;
 
-    /* إنشاء النصوص والصور */
+    /* إنشاء النصوص والصور والبطاقة */
     right.innerHTML = `
       <div class="section2__intro">
 
@@ -163,6 +187,36 @@
         `;
       }).join("")}
 
+      <!-- بطاقة اختر تصميمك -->
+      <div class="design-cta">
+
+        <span class="design-cta__eyebrow">
+          ${t.cta.eyebrow}
+        </span>
+
+        <h3>${t.cta.title}</h3>
+
+        <h4>${t.cta.subtitle}</h4>
+
+        <p>${t.cta.description}</p>
+
+        <a
+          class="design-cta__button"
+          href="https://wa.me/966559914470?text=${encodeURIComponent("مرحباً، أرغب بمعرفة المزيد عن تصميم أثاث خاص بي لدى الغصن العتيق.")}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ${t.cta.button}
+          <span aria-hidden="true">←</span>
+        </a>
+
+        <span class="design-cta__note">
+          ${t.cta.note}
+        </span>
+
+      </div>
+
+      <!-- خاتمة القسم -->
       <div class="section2__closing">
 
         <span>${t.closingName}</span>

@@ -435,3 +435,158 @@ html[dir="ltr"] .section2__detail-image span {
     box-sizing: border-box;
   }
 }
+
+/* =========================================
+   DESIGN CTA - اختر تصميمك
+========================================= */
+
+.design-cta {
+  position: relative;
+  margin-top: 55px;
+  padding: 55px 45px;
+  background: #e8e0d2;
+  color: #1d291e;
+  text-align: right;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(177, 138, 106, 0.35);
+  animation: designCtaReveal 1s ease both;
+}
+
+.design-cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  background: #b18a6a;
+  z-index: -1;
+}
+
+.design-cta__eyebrow {
+  display: block;
+  color: #94704f;
+  font-size: 21px;
+  letter-spacing: 2px;
+  margin-bottom: 22px;
+}
+
+.design-cta h3 {
+  margin: 0 0 12px;
+  color: #1d291e;
+  font-size: clamp(34px, 3.5vw, 48px);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.design-cta h4 {
+  margin: 0 0 18px;
+  color: #665a49;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+.design-cta p {
+  max-width: 440px;
+  margin: 0 0 30px;
+  color: #625d53;
+  font-size: 25px;
+  line-height: 2.1;
+}
+
+.design-cta__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  min-width: 180px;
+  padding: 17px 27px;
+  background: #174c36;
+  color: #f6f2e9;
+  text-decoration: none;
+  font-size: 25px;
+  transition:
+    background 0.35s ease,
+    transform 0.35s ease,
+    gap 0.35s ease;
+}
+
+.design-cta__button:hover {
+  background: #102d22;
+  gap: 35px;
+  transform: translateY(-3px);
+}
+
+.design-cta__button span {
+  font-size: 19px;
+  transition: transform 0.35s ease;
+}
+
+.design-cta__button:hover span {
+  transform: translateX(-5px);
+}
+
+.design-cta__note {
+  display: block;
+  margin-top: 18px;
+  color: #897b68;
+  font-size: 19px;
+}
+
+@keyframes designCtaReveal {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .design-cta {
+    margin-top: 40px;
+    padding: 38px 25px;
+    background: #e8e0d2;
+    text-align: right;
+  }
+
+  .design-cta h3 {
+    font-size: 36px;
+  }
+
+  .design-cta h4 {
+    font-size: 17px;
+  }
+
+  .design-cta p {
+    font-size: 14px;
+  }
+
+  .design-cta__button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 380px) {
+  .design-cta {
+    padding: 30px 19px;
+  }
+
+  .design-cta h3 {
+    font-size: 31px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .design-cta {
+    animation: none;
+  }
+}

@@ -645,3 +645,19 @@ html[dir="ltr"] .s2-lightbox__close {
 .s2-lightbox[hidden] {
   display: none !important;
 }
+
+/* إظهار الكلمات بوضوح مع الحفاظ على انسيابية الخط */
+.s2-intro {
+  position: relative;
+  z-index: 5;
+}
+
+.s2-intro__title span {
+  position: relative;
+  z-index: 6;
+  background: transparent;
+  padding: 0;
+  -webkit-text-stroke: 1px #f4f0e8;
+  paint-order: stroke fill;
+  filter: drop-shadow(0 0 5px #f4f0e8);
+}

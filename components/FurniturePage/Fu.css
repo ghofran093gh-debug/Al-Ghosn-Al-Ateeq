@@ -436,3 +436,174 @@ html[dir="ltr"] .furniture__card figcaption,
 html[dir="ltr"] .furniture__video-caption {
   text-align: left;
 }
+
+/* =================================
+   Card Descriptions + Inquiry Buttons
+================================= */
+
+/* name, description, then the two buttons — stacked */
+.furniture__card figcaption {
+  display: block;
+}
+
+.furniture__desc {
+  display: block;
+  text-wrap: pretty;
+}
+
+.furniture__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+/* shared button base (price inquiry = filled) */
+.furniture__inquiry {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 34px;
+  padding: 0 17px;
+
+  border: 1px solid #263C35;
+  border-radius: 2px;
+
+  background: #263C35;
+  color: #F4F0E8;
+
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.furniture__inquiry:hover,
+.furniture__inquiry:focus-visible {
+  background: #1D291E;
+  border-color: #C19A65;
+}
+
+/* details button = outlined with a fine gold line */
+.furniture__inquiry--ghost {
+  background: transparent;
+  border-color: rgba(193, 154, 101, 0.85);
+  color: #263C35;
+}
+
+.furniture__inquiry--ghost:hover,
+.furniture__inquiry--ghost:focus-visible {
+  background: rgba(193, 154, 101, 0.18);
+  border-color: #C19A65;
+  color: #1D291E;
+}
+
+.furniture__inquiry:focus-visible {
+  outline: 2px solid #C19A65;
+  outline-offset: 2px;
+}
+
+@media (pointer: coarse) {
+  .furniture__inquiry {
+    min-height: 40px;
+  }
+}
+
+@media (max-width: 380px) {
+  .furniture__inquiry {
+    flex: 1 1 auto;
+  }
+}
+
+/* =================================
+   Floating WhatsApp Button
+================================= */
+
+.furniture__float-wa {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  bottom: max(22px, env(safe-area-inset-bottom));
+  right: max(22px, env(safe-area-inset-right));
+  z-index: 900;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 54px;
+  height: 54px;
+
+  border: 1px solid rgba(29, 41, 30, 0.35);
+  border-radius: 50%;
+
+  background: #C19A65;
+  color: #1D291E;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.32);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.furniture__float-wa svg {
+  display: block;
+  width: 27px;
+  height: 27px;
+  fill: currentColor;
+}
+
+.furniture__float-wa:hover,
+.furniture__float-wa:focus-visible {
+  background: #D2AE7C;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.38);
+}
+
+.furniture__float-wa:focus-visible {
+  outline: 2px solid #D8C9B5;
+  outline-offset: 3px;
+}
+
+/* phones and tablets: compact and tucked into the corner, so it sits over
+   the card margin and stays clear of the text and the buttons */
+@media (max-width: 1200px) {
+  .furniture__float-wa {
+    right: 5px;
+    bottom: 14px;
+    bottom: max(14px, env(safe-area-inset-bottom));
+    right: max(5px, env(safe-area-inset-right));
+
+    width: 40px;
+    height: 40px;
+
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  }
+
+  .furniture__float-wa svg {
+    width: 21px;
+    height: 21px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .furniture__float-wa,
+  .furniture__inquiry {
+    transition: none;
+  }
+
+  .furniture__float-wa:hover,
+  .furniture__float-wa:focus-visible {
+    transform: none;
+  }
+}
